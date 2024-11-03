@@ -38,7 +38,7 @@ wifi:
 captive_portal:
 
 dashboard_import:
-  package_import_url: github://esphome/example-configs/esphome-web/esp32.yaml@main
+  package_import_url: github://marasm/esphome/blob/main/esphome-web-349b08.yaml@main
   import_full_config: true
 
 # Sets up Bluetooth LE (Only on ESP32) to allow the user
@@ -56,9 +56,9 @@ matrix_keypad:
     - pin: 12
     - pin: 14
   columns:
-    - pin: 35
-    - pin: 34
-    - pin: 39
+    - pin: 27
+    - pin: 26
+    - pin: 25
   keys: "123456789"
   has_diodes: false
 
