@@ -1,0 +1,110 @@
+substitutions:
+  name: esp32-espdeck-basement
+  friendly_name: EspDeck Basement
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+  min_version: 2024.6.0
+  name_add_mac_suffix: false
+  project:
+    name: ha.espdeck
+    version: 1.0.0
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Allow Over-The-Air updates
+ota:
+- platform: esphome
+
+# Allow provisioning Wi-Fi via serial
+improv_serial:
+
+wifi:
+  # Set up a wifi access point
+  ap: {}
+
+# In combination with the `ap` this allows the user
+# to provision wifi credentials to the device via WiFi AP.
+captive_portal:
+
+dashboard_import:
+  package_import_url: github://esphome/example-configs/esphome-web/esp32.yaml@main
+  import_full_config: true
+
+# Sets up Bluetooth LE (Only on ESP32) to allow the user
+# to provision wifi credentials to the device.
+esp32_improv:
+  authorizer: none
+
+# To have a "next url" for improv serial
+web_server:
+
+matrix_keypad:
+  id: espdeck_keypad
+  rows:
+    - pin: 13
+    - pin: 12
+    - pin: 14
+  columns:
+    - pin: 35
+    - pin: 34
+    - pin: 39
+  keys: "123456789"
+  has_diodes: false
+
+binary_sensor:
+  - platform: matrix_keypad
+    keypad_id: espdeck_keypad
+    id: key1
+    key: 1
+    name: "Key 1"
+  - platform: matrix_keypad
+    keypad_id: espdeck_keypad
+    id: key2
+    key: 2
+    name: "Key 2"
+  - platform: matrix_keypad
+    keypad_id: espdeck_keypad
+    id: key3
+    key: 3
+    name: "Key 3"
+  - platform: matrix_keypad
+    keypad_id: espdeck_keypad
+    id: key4
+    key: 4
+    name: "Key 4"
+  - platform: matrix_keypad
+    keypad_id: espdeck_keypad
+    id: key5
+    key: 5
+    name: "Key 5"
+  - platform: matrix_keypad
+    keypad_id: espdeck_keypad
+    id: key6
+    key: 6
+    name: "Key 6"
+  - platform: matrix_keypad
+    keypad_id: espdeck_keypad
+    id: key7
+    key: 7
+    name: "Key 7"
+  - platform: matrix_keypad
+    keypad_id: espdeck_keypad
+    id: key8
+    key: 8
+    name: "Key 8"
+  - platform: matrix_keypad
+    keypad_id: espdeck_keypad
+    id: key9
+    key: 9
+    name: "Key 9"
